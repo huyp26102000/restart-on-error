@@ -3,7 +3,7 @@ const pm2 = require("pm2");
 const blacklistedError = "error";
 const errorThreshold = 5;
 const logLineLimit = 50;
-const waitTimeBeforeRestart = 10000; // 3 minutes in milliseconds
+const waitTimeBeforeRestart = 3 * 60 * 1000; // 3 minutes in milliseconds
 
 let isWaitingForRestart = false; // Flag to pause log checks during wait time
 
