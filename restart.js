@@ -3,7 +3,7 @@ const pm2 = require("pm2");
 const blacklistedError = "error";
 const errorThreshold = 5;
 const logLineLimit = 50;
-const waitTimeBeforeRestart = 3 * 60 * 1000; // 3 minutes in milliseconds
+const waitTimeBeforeRestart = 8 * 60 * 1000; // 3 minutes in milliseconds
 
 let isWaitingForRestart = false; // Flag to pause log checks during wait time
 
@@ -120,7 +120,7 @@ const restartInstance = async (miners) => {
   await pm2.stop(runningProc);
   console.log(await getlistpm2());
   console.log("delaying 10sec ");
-  await delay(10000);
+  await delay(20000);
   console.log("Restarting instance: ", stoppedProc);
   await pm2.restart(stoppedProc);
   console.log(await getlistpm2());
